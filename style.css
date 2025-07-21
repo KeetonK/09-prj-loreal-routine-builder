@@ -8,7 +8,8 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: #000;
+  background: #fff;
   display: flex;
   justify-content: center;
 }
@@ -16,6 +17,7 @@ body {
 .page-wrapper {
   width: 90%;
   max-width: 900px;
+  background: #fff;
 }
 
 /* header */
@@ -23,6 +25,9 @@ body {
   text-align: center;
   padding-top: 50px;
   padding-bottom: 10px;
+  background: #fff;
+  color: #000;
+  border-bottom: 3px solid #e3a535;
 }
 
 .logo {
@@ -34,6 +39,7 @@ body {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+  color: #000;
 }
 
 /* category filter */
@@ -46,29 +52,32 @@ body {
   width: 100%;
   padding: 16px;
   font-size: 18px;
-  border: 2px solid #000;
+  border: 2px solid #e3a535;
   border-radius: 8px;
   cursor: pointer;
-  background-color: white;
+  background-color: #fff;
   font-weight: 500;
+  color: #000;
 }
 
 .search-section select:focus {
   outline: none;
-  border-color: #666;
+  border-color: #e3a535;
 }
 
 /* chat section */
 .chatbox {
   margin: 40px 0;
-  border: 2px solid #000;
+  border: 2px solid #e3a535;
   border-radius: 8px;
   padding: 26px;
+  background: #fff;
 }
 
 .chatbox h2 {
   font-size: 20px;
   margin-bottom: 20px;
+  color: #000;
 }
 
 .chat-window {
@@ -79,6 +88,8 @@ body {
   overflow-y: auto;
   background: #fafafa;
   margin-bottom: 20px;
+  border: 1px solid #e3a535;
+  color: #000;
 }
 
 /* placeholder message */
@@ -104,16 +115,17 @@ body {
   border: none;
   border-bottom: 2px solid #ccc;
   background: transparent;
+  color: #000;
 }
 
 .chat-form input:focus {
   outline: none;
-  border-bottom-color: #000;
+  border-bottom-color: #e3a535;
 }
 
 .chat-form button {
   font-size: 18px;
-  background: #000;
+  background: #e3a535;
   color: #fff;
   border: none;
   padding: 12px;
@@ -127,11 +139,11 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: #000;
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
+  outline: 2px solid #e3a535;
   outline-offset: 2px;
 }
 
@@ -154,6 +166,8 @@ body {
   text-align: center;
   font-size: 14px;
   color: #666;
+  background: #fff;
+  border-top: 2px solid #e3a535;
 }
 
 .site-footer nav {
@@ -162,12 +176,12 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: #e3a535;
   text-decoration: none;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: #000;
 }
 
 /* products grid */
@@ -186,6 +200,13 @@ body {
   display: flex;
   gap: 15px;
   min-height: 160px;
+  background: #fff;
+  position: relative;
+}
+
+.product-card.selected {
+  border: 2px solid #e3a535;
+  box-shadow: 0 0 0 2px #e3a535;
 }
 
 .product-card img {
@@ -193,6 +214,8 @@ body {
   height: 110px;
   object-fit: contain;
   flex-shrink: 0;
+  border: 1px solid #e3a535;
+  background: #fff;
 }
 
 .product-card .product-info {
@@ -206,6 +229,7 @@ body {
 .product-card h3 {
   font-size: 16px;
   margin-bottom: 8px;
+  color: #000;
 }
 
 .product-card p {
@@ -213,17 +237,79 @@ body {
   color: #666;
 }
 
+/* product description */
+.product-description {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: 1px solid #e3a535;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  font-size: 15px;
+  z-index: 2;
+}
+
+.product-card:hover .product-description {
+  display: block;
+}
+
 /* selected products */
 .selected-products {
   margin: 40px 0;
   padding: 20px;
-  border: 2px solid #000;
+  border: 2px solid #e3a535;
   border-radius: 8px;
+  background: #fff;
 }
 
 .selected-products h2 {
   font-size: 20px;
   margin-bottom: 20px;
+  color: #e3a535;
+}
+
+.selected-product-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid #e3a535;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.selected-product-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid #e3a535;
+}
+
+.selected-product-item span {
+  flex: 1;
+  color: #000;
+}
+
+.selected-product-item .remove-selected {
+  background: none;
+  border: none;
+  color: #e3a535;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0 6px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.selected-product-item .remove-selected:hover {
+  background: #e3a535;
+  color: #fff;
 }
 
 #selectedProductsList {
@@ -239,7 +325,7 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #fff;
-  background: #000;
+  background: #e3a535;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -247,9 +333,10 @@ body {
 }
 
 .generate-btn:hover {
-  background: #666;
+  background: #000;
 }
 
 .generate-btn i {
   margin-right: 8px;
+  color: #fff;
 }
